@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Joke Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #666;
+            font-size: 24px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .hidden {
+            display: none;
+            color: #6CB4EE;
+        }
+
+        button.blue {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        button.blue:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>
+            <%= joke %>
+        </h1>
+
+        <h2 id="elementToToggle" class="hidden">
+            <%= answer %>
+        </h2>
+
+
+        <button class="blue" onclick="toggleElement()">Answer</button>
+
+        <form action="/refresh" method="POST">
+            <label for="submit">Next Joke:</label>
+            <input id="answer" type="submit" value="Click here">
+        </form>
+
+        
+
+        <script>
+            function toggleElement() {
+                var element = document.getElementById("elementToToggle");
+                if (element.style.display === "none") {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
